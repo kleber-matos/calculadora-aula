@@ -29,7 +29,7 @@ export default function App() {
         setResultado(Number(primeiroValor) * Number(segundoValor));
         break;
       case "c":
-        // Na parte de apagar, podemos definir valor para resertar os canpos
+        // Na parte de apagar, podemos definir valor para resertar os campos
         setResultado(0);
         setPrimeiroValor("");
         setSegundoValor("");
