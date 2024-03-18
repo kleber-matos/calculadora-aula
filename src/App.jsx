@@ -1,24 +1,7 @@
 /** @format */
+// Switch case: https://www.w3schools.com/js/js_switch.asp
 
-import React, { useState } from "react";
-import styled from "styled-components";
-
-//Estilos
-const Buttons = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  width: 50vw;
-  button {
-    background-color: #fdac33;
-    border: solid 1px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: red;
-  }
-`;
+import { useState } from "react";
 
 export default function App() {
   //Pega o valor do primeiro input e guarda
@@ -27,12 +10,14 @@ export default function App() {
   //Pega o valor do segundo input e guarda
   const [segundoValor, setSegundoValor] = useState();
 
-  //Guarada o resultado
+  //Guarda o resultado
   const [resultado, setResultado] = useState(0);
 
-  //Função responsavel por verificar o operador e calcular
+  // Função responsavel por verificar o operador e calcular
+  // calcular(operacao): "operacao" e um parametro, sendo chamado la no botão com seu argumento "+", "-"...
   function calcular(operacao) {
-    // Switch casa fazendo a verificação dos operadores
+    // Nos botoẽs tem argumentos como: "calcular("+")" para serem verificados dentro do swich
+    // Switch case fazendo a verificação dos operadores
     switch (operacao) {
       case "+":
         setResultado(Number(primeiroValor) + Number(segundoValor));
@@ -44,6 +29,7 @@ export default function App() {
         setResultado(Number(primeiroValor) * Number(segundoValor));
         break;
       case "c":
+        // Na parte de apagar, podemos definir valor para resertar os canpos
         setResultado(0);
         setPrimeiroValor("");
         setSegundoValor("");
@@ -70,12 +56,13 @@ export default function App() {
         />
 
         {/* Botoões */}
-        <Buttons>
+        <div>
+          {/* A função calcular com "+", passa no switch para verificar a operação */}
           <button onClick={() => calcular("+")}>+</button>
           <button onClick={() => calcular("-")}>-</button>
           <button onClick={() => calcular("*")}>*</button>
           <button onClick={() => calcular("c")}>c</button>
-        </Buttons>
+        </div>
       </div>
     </div>
   );
